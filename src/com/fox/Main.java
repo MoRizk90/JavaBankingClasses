@@ -11,8 +11,9 @@ public class Main {
             alexBranh.addCustomer("fox" + i, 12.40d + i*2 );
         }
         alexBranh.printCustomerList();
-        alexBranh.findCustomer("fox4");
-
+        boolean b = alexBranh.findCustomer("fox4");
+        System.out.println (b + "");
+        alexBranh.theTargetedCustomer ( "fox4" );
 
 
 

@@ -1,5 +1,7 @@
 package com.fox;
 
+
+
 import java.util.ArrayList;
 
 public class Branch {
@@ -16,19 +18,47 @@ public class Branch {
         customerList.add(new Customer(name, initAmount));
     }
 
+    public void addTransaction(String customerName, double transactionAmount){
+        Customer thewantedCst = theTargetedCustomer ( customerName );
+        if(thewantedCst != null){
+            
+        }
+    }
+
     public boolean findCustomer(String targetedCustomer){
         for (int i = 0; i < customerList.size(); i++){
             String theCustomer = customerList.get(i).getName().toLowerCase();
-            if (theCustomer.toLowerCase() == targetedCustomer.toLowerCase()) {
+            if (theCustomer.toLowerCase().equals ( targetedCustomer.toLowerCase())) {
                 System.out.println("the customer was found");
                 return true;
 
             }
 
+
         }
+
+
         return false;
 
     }
+
+    public Customer theTargetedCustomer(String CustomerName){
+        if(findCustomer ( CustomerName )){
+            for (int i = 0; i < customerList.size(); i++){
+                String theCustomer = customerList.get(i).getName().toLowerCase();
+                if (theCustomer.toLowerCase().equals ( CustomerName.toLowerCase())) {
+                    System.out.println ("the transaction was added");
+                    return customerList.get ( i );
+
+                }
+                else {
+                    System.out.println ("Customer was not found!!!");
+                }
+        }
+        return null;
+
+    }
+
 
     public void printCustomerList(){
         for (int i = 0; i < customerList.size();i++){
